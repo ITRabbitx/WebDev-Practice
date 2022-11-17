@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Making a circle</title>
+</head>
+<body>
+	<canvas id="myCanv" width="300" height="300" style="border:1px solid #d3d3d3;">
+	</canvas>
+	<script>
+		var c = document.getElementById("myCanv");
+		var ctx = c.getContext("2d");
+		ctx.beginPath();
+		ctx.arc(100, 75, 50, 0, 2 * Math.PI,true);
+		ctx.arc(100, 150, 50, 0, 2 * Math.PI);
+		ctx.stroke();
+		var grd = ctx.createLinearGradient(0, 0, c.width, 100);
+		grd.addColorStop("0.3", "blue");
+		grd.addColorStop("0.8", "magenta");
+		ctx.font = "20px Georgia";
+		ctx.fillStyle = grd;
+		ctx.fillText("I made circles!", 50, 250);
+	</script>
+</body>	
+</html>
+
