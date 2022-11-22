@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+    <head>
+        <title>Simple WebDev Practice</title>
+    </head>
+    <body>
+        <form id="f1" onSubmit="return false"> //Prevemt page reload after form submit
+            <label for="fcolour">Favourite Colour:</label><br>
+            <input type="text" id="fcolour" name="fcolour" placeholder="Name a colour"><br>
+            <label for ="fseason">Favourite Season:</label><br>
+            <input type="text" id="fseason" name="fseason" placeholder="Name a season"><br>
+            <input type="submit" value="Submit your answers" onClick="getData()">
+        </form>
+        <div>
+            //empty placeholders for displaying form answers
+            <p id="p1"></p> 
+            <p id="p2"></p>
+        </div>
+    </body>
+    <script>
+        function getData(){
+            var colourText = document.getElementById("fcolour").value;
+            var seasonText = document.getElementById("fseason").value;
+            document.getElementById("p1").innerHTML = colourText;
+            document.getElementById("p2").innerHTML = seasonText;
+        }
+    </script>
+</html>
