@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+    <head>
+        <title>Vertical NavBar Practice</title>
+        <style>
+            ul.nav {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                width: 72em;
+                overflow: hidden;
+                background: #FAA819;
+            }
+
+            ul.nav li {
+                float: left;
+            }
+
+            ul.nav a {
+                display: block;
+                padding: 0.3em;
+                line-height: 2.1em;
+                text-decoration: none;
+                color: #fff;
+                border-right: 0.1em solid black;
+            }
+
+            ul.nav .first a{
+                background-image: none;
+            }
+
+            ul.nav li:first-child a {
+                background: none;
+            }
+
+            ul.nav a:hover,
+            ul.nav a:focus {
+                color: #333;
+            }
+        </style>
+    </head>
+    <body>
+        <ul class="nav">
+            <li class="first" ><a href="#">Home</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Clients</a></li>
+            <li><a href="#">Contact us</a></li>
+        </ul>
+    </body>
+</html>
