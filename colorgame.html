@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Color Game</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <style>
+            canvas{
+                border: 1px solid #000000;
+            }    
+        </style>    
+    </head>
+    <body>
+        <canvas id="canvas" width="300" height="200"></canvas>
+        <p>Was ist die Hauptfarbe?</p>
+        <button type="submit" id="bRed">Rot</button>  
+        <button type="submit" id="bGreen">Grün</button>  
+        <button type="submit" id="bBlue">Blau</button>  
+        <p id="feedback"></p>
+
+        <script>
+            // Generate random number, round it down to lower value
+            function randomInteger(max) {
+                console.log(max);
+                return Math.floor(Math.random()*(max + 1));
+            }
+
+            // Generating 3 random integers between 0 and 255
+            let r = randomInteger(255);
+            let g = randomInteger(255);
+            let b = randomInteger(255);
+
+            //Function to pass RGB value to randHexColor function
+            function randRgbColor() {
+                console.log(r, g, b);
+                return [r, g, b];
+            }     
+
+            // Converting values into hex 
+            function randHexColor(){
+                let [r, g, b] = randRgbColor();
+                let hr = r.toString(16).padStart(2, '0');
+                let hg = r.toString(16).padStart(2, '0');
+                let hb = b.toString(16).padStart(2, '0');
+    
+                console.log(hr, hg, hb);
+                return ["#" + hr + hg + hb];
+            }
+                // Fill canvas
+                let hex = randHexColor(); 
+                console.log(hex);
+                var c = document.getElementById('canvas');
+                var ctx = c.getContext('2d');
+                ctx.fillStyle = hex;
+                ctx.fillRect(3, 3, 300, 200);
+                console.log("canvas filled");
+
+            // Buttons
+
+            function btnFeedback(btnidx){
+
+                console.log("Clicked button index is " + btnidx);
+
+                console.log("[r,g,b] = " + [r,g,b]);
+                let maxOutOf3 = Math.max(r, g, b);
+                console.log("maxOutOf3  = " + maxOutOf3);
+                
+                if (maxOutOf3 == r && btnidx == 1) 
+                    document.getElementById('feedback').innerHTML = "Das ist richtig!"
+                else if (maxOutOf3 == g && btnidx == 2)
+                    document.getElementById('feedback').innerHTML = "Das ist richtig!"
+                else if (maxOutOf3 == b && btnidx == 3)
+                    document.getElementById('feedback').innerHTML = "Das ist richtig!"
+                else
+                    document.getElementById('feedback').innerHTML = "Das ist falsch!"
+
+            }
+            function btnFeedbackR(btnidx){ btnFeedback(1); }
+            function btnFeedbackG(btnidx){  btnFeedback(2); }
+            function btnFeedbackB(btnidx){ btnFeedback(3); }
+
+            document.getElementById('bRed').addEventListener('click', btnFeedbackR);
+            document.getElementById('bGreen').addEventListener('click', btnFeedbackG);
+            document.getElementById('bBlue').addEventListener('click', btnFeedbackB);
+             
+        </script>
+    </body>
+</html>
