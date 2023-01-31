@@ -1,0 +1,34 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+  <meta charset="utf-8">
+  <title>Evaluate Calculations</title>
+</head>
+ 
+<body>
+    <form id="f1" onSubmit="return false">
+        <label for="calc">Enter your calculation</label>
+        <input type="text" id="calc" name="calc">
+        <button id="b1" type="submit">Evaluate your calculation</button>
+    </form>
+    <div>
+        <p id="p1"></p>
+    </div>
+
+<script>
+    function evalCalculation(){
+        var calculation = document.getElementById("calc").value;
+        result = eval(calculation);
+        document.getElementById("p1").innerHTML = result;
+    }
+    
+    document.getElementById("b1").addEventListener("click", evalCalculation);
+
+</script>
+ 
+</body>
+ 
+</html>
+ 
