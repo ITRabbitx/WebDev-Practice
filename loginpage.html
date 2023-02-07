@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+    <head>
+        <title>Login Page</title>
+    <style>
+    
+    </style>
+    </head>
+    <body>
+        <form id="f1" onSubmit="return false">
+            <label for="username">Username</label><br>
+            <input type="text" id="username" name="username" placeholder="Write your username" required><br>
+            <label for ="password">Password</label><br>
+            <input type="text" id="password" name="password" placeholder="Write your password" required><br>
+            <input type="submit" value="Login" onClick="checkLogin()">
+        </form>
+        <div>
+            <p id="p1"></p> 
+        </div>
+    </body>
+    <script>
+        function checkLogin(){
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            if (username == null || username == "") {
+                alert("Please enter your username");
+                return false;
+            }
+            if (password == null || password == ""){
+                alert("Please enter your password");
+                return false;
+            }
+            alert("Login complete");
+        }
+    </script>
+</html>
